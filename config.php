@@ -1,7 +1,7 @@
 <?php
-$pool_config['db_connect']="mysql:host=localhost;dbname=DB-NAME";
-$pool_config['db_user']="DB-USER";
-$pool_config['db_pass']="DBPASS";
+$pool_config['db_connect']="mysql:host=".getenv('POOL_MYSQL_HOST').";dbname=".getenv('MYSQL_DB');
+$pool_config['db_user']=getenv('MYSQL_USER');
+$pool_config['db_pass']=getenv('MYSQL_PASSWORD');
 
 $pool_config['max_deadline']=1000000; 
 $pool_config['node_path']="/var/www/node";  // path to where the node is installed
