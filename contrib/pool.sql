@@ -3,24 +3,24 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-CREATE TABLE `abusers` (
+CREATE TABLE IF NOT EXISTS `abusers` (
   `miner` varchar(128) NOT NULL,
   `nonce` varchar(128) NOT NULL
 ) ENGINE=MEMORY DEFAULT CHARSET=latin1;
 
-CREATE TABLE `blocks` (
+CREATE TABLE IF NOT EXISTS `blocks` (
   `id` varbinary(256) NOT NULL,
   `height` int(11) NOT NULL,
   `miner` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `reward` decimal(20,8) NOT NULL DEFAULT 0.00000000
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `info` (
+CREATE TABLE IF NOT EXISTS `info` (
   `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `val` varchar(128) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `miners` (
+CREATE TABLE IF NOT EXISTS `miners` (
   `id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `shares` bigint(20) NOT NULL DEFAULT 0,
   `historic` bigint(20) DEFAULT 0,
@@ -31,11 +31,11 @@ CREATE TABLE `miners` (
   `hashrate` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `nonces` (
+CREATE TABLE IF NOT EXISTS `nonces` (
   `nonce` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''
 ) ENGINE=MEMORY DEFAULT CHARSET=latin1;
 
-CREATE TABLE `payments` (
+CREATE TABLE IF NOT EXISTS `payments` (
   `id` int(11) NOT NULL,
   `address` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `block` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
@@ -45,12 +45,12 @@ CREATE TABLE `payments` (
   `txn` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `rejects` (
+CREATE TABLE IF NOT EXISTS `rejects` (
   `ip` varchar(45) NOT NULL,
   `data` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `workers` (
+CREATE TABLE IF NOT EXISTS `workers` (
   `id` varchar(32) NOT NULL,
   `hashrate` int(11) NOT NULL,
   `updated` int(11) NOT NULL,
