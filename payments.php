@@ -107,7 +107,7 @@ foreach($r as $x){
 	$res=pay_post("/api.php?q=send",array("dst"=>$x['address'],"val"=>$val, "private_key"=>$private_key, "public_key"=>$public_key, "version"=>1));
 	echo "$val\n";
 	echo "$x[address]\n";
-	if($res['status']!="ok") print("ERROR: $res[data]\n");
+	if($res['status']!="ok") print("ERROR: Status: $res[status], $res[data]\n");
 	else{
 		$total_paid+=$x['v'];
 		
