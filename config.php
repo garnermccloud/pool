@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 $pool_config['db_connect']="mysql:host=".getenv('POOL_MYSQL_HOST').";dbname=".getenv('MYSQL_DB');
 $pool_config['db_user']=getenv('MYSQL_USER');
 $pool_config['db_pass']=getenv('MYSQL_PASSWORD');
