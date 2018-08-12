@@ -42,7 +42,7 @@ $cache_file="cache/info.txt";
         $res=array("difficulty"=>$g['data']['difficulty'], "block"=>$g['data']['block'], "height"=>$g['data']['height'], "public_key"=>$pool_config['public_key'], "limit"=>$max_dl);
         $fin=json_encode(array("status"=>"ok", "data"=>$res, "coin"=>"arionum"));
         echo "\n$fin\n";
-        file_put_contents($cache_file,$fin);
+        file_put_contents($pool_config['pool_path']."/".$cache_file,$fin);
 
 
     sleep(1);
